@@ -26,9 +26,9 @@ public class FullscreenResolutionHelper {
         Monitor monitor = window.findBestMonitor();
         int maxMode;
         if (monitor != null) {
-            maxMode = monitor.getModeCount() - 1;
+            maxMode = Math.max(0, monitor.getModeCount() - 1);
         } else {
-            maxMode = -1;
+            maxMode = 0;
         }
         ControlValueFormatter formatter = value -> {
             if (monitor == null) {
